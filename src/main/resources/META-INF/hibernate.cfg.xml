@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+      <!-- Database connection settings -->
+      <property name="connection.driver_class">org.postgresql.Driver</property>
+      <property name="connection.username">todolist_user</property>
+      <property name="connection.password">todolist_password</property>
+      <property name="connection.url">jdbc:postgresql://localhost:5432/todolist_db</property>
+
+      
+      <!-- List of possible options for hbm2ddl.auto are:
+	   validate:    validate the schema, makes no changes to the database.
+	   update:      update the schema.
+	   create:      creates the schema, destroying previous data.
+	   create-drop: drop the schema at the end of the session.
+      -->
+      <property name="hbm2ddl.auto">create-drop</property>
+      <!--<property name="hbm2ddl.auto">validate</property> -->
+      
+      <!-- Echo all executed SQL to stdout. -->
+      <property name="show_sql">true</property>
+      <property name="format_sql">true</property>
+
+      <!-- JDBC connection pool (use the built-in). -->
+      <property name="connection.pool_size">1</property>
+
+      <!-- SQL dialect -->
+      <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+      <!-- Enable Hibernate's automatic session context management. -->
+      <property name="current_session_context_class">thread</property>
+
+      <!-- Disable the second-level cache  -->
+      <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+
+      <!-- I'm not able to get autodetection to work... 
+      <property name="archive.autodetection">class, hbm</property>
+      -->
+
+      
+      <mapping class="com.ryanluu.todolist.model.Task" />
+      <mapping class="com.ryanluu.todolist.model.TodoList" />
+      <mapping class="com.ryanluu.todolist.model.User" />
+
+      <!-- List of XML mapping files would go here if annonations
+	   are not used. -->
+      <!-- <mapping resource="Employee.hbm.xml"/> -->
+
+
+
+
+    </session-factory>
+</hibernate-configuration>
