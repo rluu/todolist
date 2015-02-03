@@ -13,7 +13,8 @@
     <appender-ref ref="STDOUT" />
   </root>
 
-  <logger name="com.ryanluu" level="TRACE"/>
+  <logger name="org.apache.struts2" level="DEBUG" />
+  <logger name="com.ryanluu" level="TRACE" />
 
 
 </configuration>

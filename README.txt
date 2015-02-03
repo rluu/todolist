@@ -1,14 +1,47 @@
 ##############################################################################
+Eclipse IDE instructions
+##############################################################################
+
+Make sure that the version of Eclipse that is installed is Eclipse IDE for Java EE Developers.  
+
+Setting up the eclipse project (or refreshing the setup):
+Run the following to re-generate and set up the eclipse project files.  
 
 
-mvn package
+Run this whenever I update the pom.xml with new dependencies or settings.  This will add maven dependencies to the Eclipse project.
 
-mvn test
+  mvn eclipse:eclipse
+
+
+Then make sure that the project's target runtime is set (Tomcat, TomEE, etc.):
+
+  Project --> Properties --> Targeted Runtimes --> Apache Tomcat v7.0 (TomEE 1.7.1).
+
+Then make sure that the project's exports are set:
+
+  Project --> Properties --> Java Build Path --> Select All.
+
 
 
 ##############################################################################
+Maven command-line instructions
+##############################################################################
 
-PostgreSQL Database setup procedure:
+
+Run the following to create the war file.  (from the commandline)
+
+mvn package
+
+
+Run the following to run TomEE with the already-built war file.  (from the commandline)
+
+mvn tomee:run
+
+
+##############################################################################
+PostgreSQL Database setup procedure
+##############################################################################
+
 
 Installation instructions:
 http://www.postgresql.org/docs/9.3/static/install-short.html
